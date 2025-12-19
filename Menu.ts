@@ -4,8 +4,8 @@
     import { ContaCorrente } from "./src/model/ContaCorrente";
     import { ContaPoupanca } from "./src/model/ContaPoupanca";
     import { ContaController } from "./src/controller/ContaController";
-import { read } from "fs";
-    //import { read } from "fs";
+    import { read } from "fs";
+    
     
     export function main(){
 
@@ -21,19 +21,6 @@ import { read } from "fs";
 
         console.log("\nCriar Contas\n");
 
-        let cc1: ContaCorrente = new ContaCorrente(contas.gerarNumero(), 123, 1, "João da Silva", 1000, 100.0);
-        contas.cadastrar(cc1);
-
-        let cc2: ContaCorrente = new ContaCorrente(contas.gerarNumero(), 124, 1, "Maria da Silva", 2000, 100.0);
-        contas.cadastrar(cc2);
-
-        let cp1: ContaPoupanca = new ContaPoupanca(contas.gerarNumero(), 125, 2, "Mariana dos Santos", 4000, 12);
-        contas.cadastrar(cp1);
-
-        let cp2: ContaPoupanca = new ContaPoupanca(contas.gerarNumero(), 125, 2, "Juliana Ramos", 8000, 15);
-        contas.cadastrar(cp2);
-
-        contas.listarTodas();
 
         while (true){
             
@@ -91,8 +78,7 @@ import { read } from "fs";
                         case 1:
                             console.log("digite o limite da conta (R$): ");
                             limite = readlinesync.questionFloat("");
-                            contas.cadastrar(
-                                new ContaCorrente(contas.gerarNumero(), agencia, tipo, titular, saldo,limite));
+                            contas.cadastrar(new ContaCorrente(contas.gerarNumero(), agencia, tipo, titular, saldo,limite));
                             break;
                         case 2:
                             console.log("digite o dia do aniversário da conta poupança: ");
